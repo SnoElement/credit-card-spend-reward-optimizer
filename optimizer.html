@@ -455,9 +455,9 @@
 
     function formatEarning(atmosPts, statusPts, hiltonPts, cashbackRate) {
       const parts = [];
-      if (atmosPts > 0) parts.push(`${atmosPts} Atmos Pts/Dollar`);
-      if (statusPts > 0) parts.push(`${decimalToFraction(statusPts)} Status Pts/Dollar`);
-      if (hiltonPts > 0) parts.push(`${decimalToFraction(hiltonPts)} Hilton Pts/Dollar`);
+      if (atmosPts > 0) parts.push(`${atmosPts} Atmos Points`);
+      if (statusPts > 0) parts.push(`${decimalToFraction(statusPts)} Status Points`);
+      if (hiltonPts > 0) parts.push(`${decimalToFraction(hiltonPts)} Hilton Points`);
       if (cashbackRate > 0) parts.push(`${(cashbackRate * 100).toFixed(1)}% Cash`);
       
       if (parts.length === 0) return "—";
