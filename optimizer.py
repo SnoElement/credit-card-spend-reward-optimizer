@@ -105,7 +105,7 @@ cards: List[Card] = [
             "dining": 0.03,
             "travel_general": 0.03,
             "costco_general": 0.02,
-            "other": 0.01,
+            "general": 0.01,
         },
     ),
 ]
