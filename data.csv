@@ -1,0 +1,39 @@
+card_name,category,atmos_points_per_dollar,status_points_per_dollar,hilton_points_per_dollar,cashback_rate
+Atmos Summit,alaska_airlines,3,0.5,0,0
+Atmos Summit,dining,3,0.5,0,0
+Atmos Summit,foreign,3,0.5,0,0
+Atmos Summit,other,1,0.5,0,0
+Atmos Ascent,alaska_airlines,3,0.3333333333,0,0
+Atmos Ascent,hawaiian_airlines,3,0.3333333333,0,0
+Atmos Ascent,ev_charging,2,0.3333333333,0,0
+Atmos Ascent,gas,2,0.3333333333,0,0
+Atmos Ascent,transit,2,0.3333333333,0,0
+Atmos Ascent,internet_cable,2,0.3333333333,0,0
+Atmos Ascent,streaming,2,0.3333333333,0,0
+Atmos Ascent,other,1,0.3333333333,0,0
+Hawaiian MC (Atmos),hawaiian_airlines,3,0.3333333333,0,0
+Hawaiian MC (Atmos),gas,2,0.3333333333,0,0
+Hawaiian MC (Atmos),dining,2,0.3333333333,0,0
+Hawaiian MC (Atmos),groceries,2,0.3333333333,0,0
+Hawaiian MC (Atmos),other,1,0.3333333333,0,0
+Amex Blue Cash Everyday,groceries,0,0,0,0.03
+Amex Blue Cash Everyday,online_retail,0,0,0,0.03
+Amex Blue Cash Everyday,gas,0,0,0,0.03
+Amex Blue Cash Everyday,other,0,0,0,0.01
+Amex Hilton Aspire,hilton_stays,0,0,14,0
+Amex Hilton Aspire,flights,0,0,7,0
+Amex Hilton Aspire,car_rentals,0,0,7,0
+Amex Hilton Aspire,dining,0,0,7,0
+Amex Hilton Aspire,other,0,0,3,0
+Disney Premier Visa,disney_streaming,0,0,0,0.05
+Disney Premier Visa,gas,0,0,0,0.02
+Disney Premier Visa,groceries,0,0,0,0.02
+Disney Premier Visa,dining,0,0,0,0.02
+Disney Premier Visa,disney_us,0,0,0,0.02
+Disney Premier Visa,other,0,0,0,0.01
+Costco Anywhere Visa,gas_costco,0,0,0,0.05
+Costco Anywhere Visa,gas,0,0,0,0.04
+Costco Anywhere Visa,dining,0,0,0,0.03
+Costco Anywhere Visa,travel_general,0,0,0,0.03
+Costco Anywhere Visa,costco_general,0,0,0,0.02
+Costco Anywhere Visa,other,0,0,0,0.01

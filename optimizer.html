@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Spend Optimizer</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 20px; }
+    label { display: block; margin-top: 10px; }
+    input, select { padding: 4px; margin-top: 4px; }
+    button { margin-top: 12px; padding: 6px 10px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; max-width: 900px; }
+    th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+    th { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>Credit Card Spend Optimizer</h1>
+
+  <h2>Valuations</h2>
+  <label>Atmos redeemable point value:
+    <input type="number" id="atmos_value" step="0.0001" value="0.012">
+  </label>
+  <label>Status point value:
+    <input type="number" id="status_value" step="0.0001" value="0.022222">
+  </label>
+  <label>Hilton point value:
+    <input type="number" id="hilton_value" step="0.0001" value="0.004">
+  </label>
+
+  <h2>Category</h2>
+  <label>Choose category:
+    <select id="category">
+      <option value="groceries">Groceries</option>
+      <option value="gas">Gas (non-Costco)</option>
+      <option value="gas_costco">Gas at Costco</option>
+      <option value="dining">Dining</option>
+      <option value="online_retail">Online retail</option>
+      <option value="travel_general">Travel (general)</option>
+      <option value="alaska_airlines">Alaska Airlines</option>
+      <option value="hawaiian_airlines">Hawaiian Airlines</option>
+      <option value="foreign">Foreign purchases</option>
+      <option value="hilton_stays">Hilton stays</option>
+      <option value="disney_streaming">Disney streaming</option>
+      <option value="costco_general">Costco general</option>
+      <option value="other">Other</option>
+    </select>
+  </label>
+
+  <button id="run">Run Optimizer</button>
+
+  <h2>Results</h2>
+  <table id="results">
+    <thead>
+      <tr>
+        <th>Card</th>
+        <th>Total Value (%)</th>
+        <th>Atmos (%)</th>
+        <th>Status (%)</th>
+        <th>Hilton (%)</th>
+        <th>Cash (%)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const cards = [
+      {
+        name: "Atmos Summit",
+        atmos: { alaska_airlines: 3, dining: 3, foreign: 3, other: 1 },
+        status: { other: 0.5 },
+        hilton: {},
+        cashback: {}
+      },
+      {
+        name: "Atmos Ascent",
+        atmos: {
+          alaska_airlines: 3,
+          hawaiian_airlines: 3,
+          ev_charging: 2,
+          gas: 2,
+          transit: 2,
+          internet_cable: 2,
+          streaming: 2,
+          other: 1
+        },
+        status: { other: 0.3333333333 },
+        hilton: {},
+        cashback: {}
+      },
+      {
+        name: "Hawaiian MC (Atmos)",
+        atmos: {
+          hawaiian_airlines: 3,
+          gas: 2,
+          dining: 2,
+          groceries: 2,
+          other: 1
+        },
+        status: { other: 0.3333333333 },
+        hilton: {},
+        cashback: {}
+      },
+      {
+        name: "Amex Blue Cash Everyday",
+        atmos: {},
+        status: {},
+        hilton: {},
+        cashback: {
+          groceries: 0.03,
+          online_retail: 0.03,
+          gas: 0.03,
+          other: 0.01
+        }
+      },
+      {
+        name: "Amex Hilton Aspire",
+        atmos: {},
+        status: {},
+        hilton: {
+          hilton_stays: 14,
+          flights: 7,
+          car_rentals: 7,
+          dining: 7,
+          other: 3
+        },
+        cashback: {}
+      },
+      {
+        name: "Disney Premier Visa",
+        atmos: {},
+        status: {},
+        hilton: {},
+        cashback: {
+          disney_streaming: 0.05,
+          gas: 0.02,
+          groceries: 0.02,
+          dining: 0.02,
+          disney_us: 0.02,
+          other: 0.01
+        }
+      },
+      {
+        name: "Costco Anywhere Visa",
+        atmos: {},
+        status: {},
+        hilton: {},
+        cashback: {
+          gas_costco: 0.05,
+          gas: 0.04,
+          dining: 0.03,
+          travel_general: 0.03,
+          costco_general: 0.02,
+          other: 0.01
+        }
+      }
+    ];
+
+    function getRate(map, category) {
+      if (category in map) return map[category];
+      if ("other" in map) return map["other"];
+      return 0;
+    }
+
+    document.getElementById("run").addEventListener("click", () => {
+      const atmosVal = parseFloat(document.getElementById("atmos_value").value) || 0;
+      const statusVal = parseFloat(document.getElementById("status_value").value) || 0;
+      const hiltonVal = parseFloat(document.getElementById("hilton_value").value) || 0;
+      const category = document.getElementById("category").value;
+
+      const rows = [];
+
+      for (const card of cards) {
+        const atmosPts = getRate(card.atmos, category);
+        const statusPts = getRate(card.status, category);
+        const hiltonPts = getRate(card.hilton, category);
+        const cashbackRate = getRate(card.cashback, category);
+
+        const atmosValue = atmosPts * atmosVal;
+        const statusValue = statusPts * statusVal;
+        const hiltonValue = hiltonPts * hiltonVal;
+        const cashValue = cashbackRate;
+
+        const total = atmosValue + statusValue + hiltonValue + cashValue;
+
+        rows.push({
+          name: card.name,
+          total,
+          atmosValue,
+          statusValue,
+          hiltonValue,
+          cashValue
+        });
+      }
+
+      rows.sort((a, b) => b.total - a.total);
+
+      const tbody = document.querySelector("#results tbody");
+      tbody.innerHTML = "";
+      for (const r of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${r.name}</td>
+          <td>${(r.total * 100).toFixed(4)}</td>
+          <td>${(r.atmosValue * 100).toFixed(4)}</td>
+          <td>${(r.statusValue * 100).toFixed(4)}</td>
+          <td>${(r.hiltonValue * 100).toFixed(4)}</td>
+          <td>${(r.cashValue * 100).toFixed(4)}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    });
+  </script>
+</body>
+</html>
