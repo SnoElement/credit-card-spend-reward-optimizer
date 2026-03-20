@@ -20,7 +20,7 @@ def get_rate(mapping: Dict[str, float], category: str) -> float:
 cards: List[Card] = [
     Card(
         name="Atmos Summit",
-        atmos_points={"alaska_airlines": 3, "dining": 3, "foreign": 3, "other": 1},
+        atmos_points={"alaska_airlines": 3, "hawaiian_airlines": 3, "dining": 3, "foreign": 3, "other": 1},
         status_points={"other": 0.5},
         hilton_points={},
         cashback={},
@@ -44,6 +44,7 @@ cards: List[Card] = [
     Card(
         name="Hawaiian MC (Atmos)",
         atmos_points={
+            "alaska_airlines": 3,
             "hawaiian_airlines": 3,
             "gas": 2,
             "dining": 2,
