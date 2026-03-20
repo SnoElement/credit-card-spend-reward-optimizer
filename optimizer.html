@@ -458,7 +458,11 @@
       if (statusPts > 0) parts.push(`${decimalToFraction(statusPts)} Status Pts/Dollar`);
       if (hiltonPts > 0) parts.push(`${decimalToFraction(hiltonPts)} Hilton Pts/Dollar`);
       if (cashbackRate > 0) parts.push(`${(cashbackRate * 100).toFixed(1)}% Cash`);
-      return parts.length > 0 ? parts.join("<br>") : "—";
+      
+      if (parts.length === 0) return "—";
+      if (parts.length <= 2) return parts.join("<br>");
+      
+      return parts.slice(0, 2).join("<br>");
     }
 
     function runOptimizer() {
