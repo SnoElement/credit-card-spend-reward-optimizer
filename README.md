@@ -8,7 +8,7 @@ This repository contains tools to compare effective return across multiple credi
 
 You can:
 
-- Use the **[Interactive HTML calculator](https://gist.github.com/SnoElement/d41ac90bd2bfa7f5488913653cf513f3)** (Gist - opens directly in browser)
+- Use the **[Interactive HTML calculator](https://snoelement.github.io/credit-card-spend-reward-optimizer/)** (GitHub Pages – opens directly in browser)
 - Use the Python script (`optimizer.py`) to optimize by category from the command line
 - Use the CSV (`data.csv`) in Excel/Sheets
 - Refer to `model.md` for the underlying assumptions and mappings
@@ -24,7 +24,7 @@ You can change these three core inputs:
 These are used consistently across:
 
 - optimizer.py
-- optimizer.html
+- index.html (served via GitHub Pages)
 - data.csv
 
 ## Categories
