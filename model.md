@@ -119,6 +119,19 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `costco_general: 0.02`
 	- `general: 0.01`
 
+### Apple Card
+
+- Cashback:
+	- `apple_store: 0.03`
+	- `car_rentals: 0.03`
+	- `dining: 0.03`
+	- `ev_charging: 0.03`
+	- `gas: 0.03`
+	- `travel_general: 0.03`
+	- `general: 0.01`
+
+(Note: 3% at select merchants with Apple Pay; 2% with Apple Pay elsewhere; 1% with physical/virtual card. Model uses 1% general as conservative fallback.)
+
 ## Notes on Category Coverage
 
 Not all categories are present in every interface list. The optimizer still handles any category string because rates fall back to each card's `general` category when a specific category is missing.
