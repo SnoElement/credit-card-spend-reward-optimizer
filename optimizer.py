@@ -144,9 +144,9 @@ def main():
     results = optimize_category(category, atmos_val, status_val, hilton_val)
 
     print(f"Category: {category}")
-    print(f"{'Card':25s} {'Total%':>8s} {'Atmos%':>8s} {'Status%':>8s} {'Hilton%':>8s} {'Cash%':>8s}")
+    print(f"{'Card':25s} {'Total':>10s} {'Atmos':>8s} {'Status':>8s} {'Hilton':>8s} {'Cash':>8s}")
     for name, total, a, s, h, c in results:
-        print(f"{name:25s} {total*100:8.4f} {a*100:8.4f} {s*100:8.4f} {h*100:8.4f} {c*100:8.4f}")
+        print(f"{name:25s} {total*100:9.1f}% {a*100:7.2f}¢ {s*100:7.2f}¢ {h*100:7.2f}¢ {c*100:7.2f}¢")
 
 if __name__ == "__main__":
     main()

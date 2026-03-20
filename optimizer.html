@@ -444,11 +444,11 @@
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${r.name}</td>
-          <td>${(r.total * 100).toFixed(1)}</td>
-          <td>${(r.atmosValue * 100).toFixed(2)}</td>
-          <td>${(r.statusValue * 100).toFixed(2)}</td>
-          <td>${(r.hiltonValue * 100).toFixed(2)}</td>
-          <td>${(r.cashValue * 100).toFixed(2)}</td>
+          <td>${(r.total * 100).toFixed(1)}%</td>
+          <td>${(r.atmosValue * 100).toFixed(2)}¢</td>
+          <td>${(r.statusValue * 100).toFixed(2)}¢</td>
+          <td>${(r.hiltonValue * 100).toFixed(2)}¢</td>
+          <td>${(r.cashValue * 100).toFixed(2)}¢</td>
         `;
         tbody.appendChild(tr);
       }
