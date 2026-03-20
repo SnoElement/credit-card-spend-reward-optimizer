@@ -276,17 +276,7 @@
           <span>Select Category</span>
           <select id="category">
             <option value="ace_hardware">Ace Hardware</option>
-            <option value="alaska_airlines">Alaska Airlines</option>
-            <option value="apple">Apple</option>
-            <option value="costco_general">Costco general</option>
-            <option value="dining">Dining</option>
-            <option value="disney_streaming">Disney streaming</option>
-            <option value="foreign">Foreign purchases</option>
-            <option value="gas">Gas (non-Costco)</option>
-            <option value="gas_costco">Gas at Costco</option>
-            <option value="general">General</option>
-            <option value="groceries">Groceries</option>
-            <option value="hawaiian_airlines">Hawaiian Airlines</option>
+            <option value="alaska_hawaiian_airlines">Alaska or Hawaiian Airlines</option>
             <option value="hilton_stays">Hilton stays</option>
             <option value="online_retail">Online retail</option>
             <option value="travel_general">Travel (general)</option>
@@ -347,7 +337,7 @@
     const cards = [
       {
         name: "Atmos Summit",
-        atmos: { alaska_airlines: 3, hawaiian_airlines: 3, dining: 3, foreign: 3, general: 1 },
+        atmos: { alaska_hawaiian_airlines: 3, dining: 3, foreign: 3, general: 1 },
         status: { general: 0.5 },
         hilton: {},
         cashback: {}
@@ -355,8 +345,7 @@
       {
         name: "Atmos Ascent",
         atmos: {
-          alaska_airlines: 3,
-          hawaiian_airlines: 3,
+          alaska_hawaiian_airlines: 3,
           ev_charging: 2,
           gas: 2,
           transit: 2,
@@ -371,8 +360,7 @@
       {
         name: "Hawaiian MC (Atmos)",
         atmos: {
-          alaska_airlines: 3,
-          hawaiian_airlines: 3,
+          alaska_hawaiian_airlines: 3,
           gas: 2,
           dining: 2,
           groceries: 2,

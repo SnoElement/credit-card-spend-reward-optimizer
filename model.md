@@ -48,8 +48,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 ### Atmos Summit
 
 - Atmos points:
-	- `alaska_airlines: 3`
-	- `hawaiian_airlines: 3`
+	- `alaska_hawaiian_airlines: 3`
 	- `dining: 3`
 	- `foreign: 3`
 	- `general: 1`
@@ -59,8 +58,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 ### Atmos Ascent
 
 - Atmos points:
-	- `alaska_airlines: 3`
-	- `hawaiian_airlines: 3`
+	- `alaska_hawaiian_airlines: 3`
 	- `ev_charging: 2`
 	- `gas: 2`
 	- `transit: 2`
@@ -73,8 +71,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 ### Hawaiian MC (Atmos)
 
 - Atmos points:
-	- `alaska_airlines: 3`
-	- `hawaiian_airlines: 3`
+	- `alaska_hawaiian_airlines: 3`
 	- `gas: 2`
 	- `dining: 2`
 	- `groceries: 2`

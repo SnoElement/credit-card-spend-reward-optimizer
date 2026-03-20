@@ -32,7 +32,7 @@ These are used consistently across:
 Exact category keys currently used in the model:
 
 - ace_hardware
-- alaska_airlines
+- airlines
 - apple
 - apple_pay
 - car_rentals
@@ -46,15 +46,13 @@ Exact category keys currently used in the model:
 - gas
 - gas_costco
 - groceries
-- hawaiian_airlines
 - hilton_stays
 - internet_cable
 - nike
 - online_retail
 - general
-- streaming
-- transit
-- travel_general
+- traveling by air (not airline-specific)
+- general
 - uber
 - walgreens
 
