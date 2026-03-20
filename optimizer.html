@@ -181,10 +181,13 @@
     td {
       padding: 14px 16px;
       border-bottom: 1px solid #e0e0e0;
+      white-space: normal;
+      word-break: break-word;
     }
 
     tbody tr {
       transition: background 0.2s ease;
+      vertical-align: middle;
     }
 
     tbody tr:nth-child(odd) {
@@ -406,13 +409,29 @@
       return 0;
     }
 
+    function decimalToFraction(decimal) {
+      const fractions = [
+        { decimal: 0.3333333333, fraction: "1/3" },
+        { decimal: 0.6666666667, fraction: "2/3" },
+        { decimal: 0.5, fraction: "1/2" },
+        { decimal: 0.25, fraction: "1/4" },
+        { decimal: 0.75, fraction: "3/4" }
+      ];
+      
+      for (const { decimal: d, fraction: f } of fractions) {
+        if (Math.abs(decimal - d) < 0.0001) return f;
+      }
+      
+      return decimal.toString();
+    }
+
     function formatEarning(atmosPts, statusPts, hiltonPts, cashbackRate) {
       const parts = [];
       if (atmosPts > 0) parts.push(`${atmosPts} Atmos Pts/Dollar`);
-      if (statusPts > 0) parts.push(`${statusPts} Status Pts/Dollar`);
-      if (hiltonPts > 0) parts.push(`${hiltonPts} Hilton Pts/Dollar`);
+      if (statusPts > 0) parts.push(`${decimalToFraction(statusPts)} Status Pts/Dollar`);
+      if (hiltonPts > 0) parts.push(`${decimalToFraction(hiltonPts)} Hilton Pts/Dollar`);
       if (cashbackRate > 0) parts.push(`${(cashbackRate * 100).toFixed(1)}% Cash`);
-      return parts.join(" + ") || "—";
+      return parts.length > 0 ? parts.join("<br>") : "—";
     }
 
     function runOptimizer() {
