@@ -8,8 +8,8 @@ This repository contains tools to compare effective return across multiple credi
 
 You can:
 
-- Use the Python script (`optimizer.py`) to optimize by category
-- Use the HTML page (`optimizer.html`) as an interactive calculator
+- Use the **[Interactive HTML calculator](https://gist.github.com/SnoElement/d41ac90bd2bfa7f5488913653cf513f3)** (Gist - opens directly in browser)
+- Use the Python script (`optimizer.py`) to optimize by category from the command line
 - Use the CSV (`data.csv`) in Excel/Sheets
 - Refer to `model.md` for the underlying assumptions and mappings
 
