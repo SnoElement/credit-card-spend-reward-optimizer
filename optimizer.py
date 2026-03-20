@@ -108,6 +108,21 @@ cards: List[Card] = [
             "general": 0.01,
         },
     ),
+    Card(
+        name="Apple Card",
+        atmos_points={},
+        status_points={},
+        hilton_points={},
+        cashback={
+            "apple_store": 0.03,
+            "car_rentals": 0.03,
+            "dining": 0.03,
+            "ev_charging": 0.03,
+            "gas": 0.03,
+            "travel_general": 0.03,
+            "general": 0.01,
+        },
+    ),
 ]
 
 def value_for_card(card, category, atmos_val, status_val, hilton_val):

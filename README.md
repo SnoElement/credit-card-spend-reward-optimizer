@@ -32,6 +32,8 @@ These are used consistently across:
 Exact category keys currently used in the model:
 
 - alaska_airlines
+- alaska_airlines
+- apple_store
 - car_rentals
 - costco_general
 - dining
