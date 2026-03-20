@@ -36,7 +36,7 @@ The command-line output multiplies each component by `100` to display percentage
 When retrieving any rate (Atmos points, status points, Hilton points, or cashback):
 
 1. If the selected category exists for that card and reward type, use that rate.
-2. Else, if an `other` fallback exists for that card and reward type, use `other`.
+2. Else, if a `general` fallback exists for that card and reward type, use `general`.
 3. Else, use `0`.
 
 This fallback behavior comes from `get_rate(...)` in the optimizer implementation.
@@ -49,11 +49,12 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 
 - Atmos points:
 	- `alaska_airlines: 3`
+	- `hawaiian_airlines: 3`
 	- `dining: 3`
 	- `foreign: 3`
-	- `other: 1`
+	- `general: 1`
 - Status points:
-	- `other: 0.5`
+	- `general: 0.5`
 
 ### Atmos Ascent
 
@@ -65,20 +66,21 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `transit: 2`
 	- `internet_cable: 2`
 	- `streaming: 2`
-	- `other: 1`
+	- `general: 1`
 - Status points:
-	- `other: 0.3333333333`
+	- `general: 0.3333333333`
 
 ### Hawaiian MC (Atmos)
 
 - Atmos points:
+	- `alaska_airlines: 3`
 	- `hawaiian_airlines: 3`
 	- `gas: 2`
 	- `dining: 2`
 	- `groceries: 2`
-	- `other: 1`
+	- `general: 1`
 - Status points:
-	- `other: 0.3333333333`
+	- `general: 0.3333333333`
 
 ### Amex Blue Cash Everyday
 
@@ -86,7 +88,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `groceries: 0.03`
 	- `online_retail: 0.03`
 	- `gas: 0.03`
-	- `other: 0.01`
+	- `general: 0.01`
 
 ### Amex Hilton Aspire
 
@@ -95,7 +97,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `flights: 7`
 	- `car_rentals: 7`
 	- `dining: 7`
-	- `other: 3`
+	- `general: 3`
 
 ### Disney Premier Visa
 
@@ -105,7 +107,7 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `groceries: 0.02`
 	- `dining: 0.02`
 	- `disney_us: 0.02`
-	- `other: 0.01`
+	- `general: 0.01`
 
 ### Costco Anywhere Visa
 
@@ -115,11 +117,11 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 	- `dining: 0.03`
 	- `travel_general: 0.03`
 	- `costco_general: 0.02`
-	- `other: 0.01`
+	- `general: 0.01`
 
 ## Notes on Category Coverage
 
-Not all categories are present in every interface list. The optimizer still handles any category string because rates fall back to each card's `other` category when a specific category is missing.
+Not all categories are present in every interface list. The optimizer still handles any category string because rates fall back to each card's `general` category when a specific category is missing.
 
 Examples of categories used in card definitions but not always exposed in every UI selector:
 
