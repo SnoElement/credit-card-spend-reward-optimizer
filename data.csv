@@ -1,5 +1,6 @@
 card_name,category,atmos_points_per_dollar,status_points_per_dollar,hilton_points_per_dollar,cashback_rate
 Atmos Summit,alaska_airlines,3,0.5,0,0
+Atmos Summit,hawaiian_airlines,3,0.5,0,0
 Atmos Summit,dining,3,0.5,0,0
 Atmos Summit,foreign,3,0.5,0,0
 Atmos Summit,general,1,0.5,0,0
