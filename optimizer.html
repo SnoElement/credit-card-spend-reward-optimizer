@@ -239,27 +239,6 @@
     <p class="subtitle">Find the best card for your spending category</p>
 
     <div class="card">
-      <details>
-        <summary>⚙️ Settings</summary>
-        <h2 style="border: none; margin: 0 0 15px 0; font-size: 1.1rem; color: #333;">Point Valuations</h2>
-        <div class="input-group">
-          <label>
-            <span>Atmos Redeemable Point Value</span>
-            <input type="number" id="atmos_value" step="0.0001" value="0.012">
-          </label>
-          <label>
-            <span>Status Point Value</span>
-            <input type="number" id="status_value" step="0.0001" value="0.022222">
-          </label>
-          <label>
-            <span>Hilton Point Value</span>
-            <input type="number" id="hilton_value" step="0.0001" value="0.004">
-          </label>
-        </div>
-      </details>
-    </div>
-
-    <div class="card">
       <h2>Spending Category</h2>
       <div class="input-group">
         <label>
@@ -281,9 +260,6 @@
           </select>
         </label>
       </div>
-      <div class="button-group">
-        <button id="run">Run Optimizer</button>
-      </div>
     </div>
 
     <div class="card results-card">
@@ -302,8 +278,29 @@
         <tbody></tbody>
       </table>
       <div class="empty-state" id="empty-state" style="display: none;">
-        Click "Run Optimizer" to see results
+        Select a category to see results
       </div>
+    </div>
+
+    <div class="card">
+      <details>
+        <summary>⚙️ Settings</summary>
+        <h2 style="border: none; margin: 0 0 15px 0; font-size: 1.1rem; color: #333;">Point Valuations</h2>
+        <div class="input-group">
+          <label>
+            <span>Atmos Redeemable Point Value</span>
+            <input type="number" id="atmos_value" step="0.0001" value="0.012">
+          </label>
+          <label>
+            <span>Status Point Value</span>
+            <input type="number" id="status_value" step="0.0001" value="0.022222">
+          </label>
+          <label>
+            <span>Hilton Point Value</span>
+            <input type="number" id="hilton_value" step="0.0001" value="0.004">
+          </label>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -408,7 +405,7 @@
       return 0;
     }
 
-    document.getElementById("run").addEventListener("click", () => {
+    function runOptimizer() {
       const atmosVal = parseFloat(document.getElementById("atmos_value").value) || 0;
       const statusVal = parseFloat(document.getElementById("status_value").value) || 0;
       const hiltonVal = parseFloat(document.getElementById("hilton_value").value) || 0;
@@ -455,7 +452,14 @@
         `;
         tbody.appendChild(tr);
       }
-    });
+    }
+
+    document.getElementById("category").addEventListener("change", runOptimizer);
+    document.getElementById("atmos_value").addEventListener("change", runOptimizer);
+    document.getElementById("status_value").addEventListener("change", runOptimizer);
+    document.getElementById("hilton_value").addEventListener("change", runOptimizer);
+
+    runOptimizer();
   </script>
 </body>
 </html>
