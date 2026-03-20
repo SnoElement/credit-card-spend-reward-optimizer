@@ -268,6 +268,7 @@
         <thead>
           <tr>
             <th>Card</th>
+            <th>Earning</th>
             <th>Total Value</th>
             <th>Atmos</th>
             <th>Status</th>
@@ -405,6 +406,15 @@
       return 0;
     }
 
+    function formatEarning(atmosPts, statusPts, hiltonPts, cashbackRate) {
+      const parts = [];
+      if (atmosPts > 0) parts.push(`${atmosPts} Atmos Pts/Dollar`);
+      if (statusPts > 0) parts.push(`${statusPts} Status Pts/Dollar`);
+      if (hiltonPts > 0) parts.push(`${hiltonPts} Hilton Pts/Dollar`);
+      if (cashbackRate > 0) parts.push(`${(cashbackRate * 100).toFixed(1)}% Cash`);
+      return parts.join(" + ") || "—";
+    }
+
     function runOptimizer() {
       const atmosVal = parseFloat(document.getElementById("atmos_value").value) || 0;
       const statusVal = parseFloat(document.getElementById("status_value").value) || 0;
@@ -425,9 +435,11 @@
         const cashValue = cashbackRate;
 
         const total = atmosValue + statusValue + hiltonValue + cashValue;
+        const earning = formatEarning(atmosPts, statusPts, hiltonPts, cashbackRate);
 
         rows.push({
           name: card.name,
+          earning,
           total,
           atmosValue,
           statusValue,
@@ -444,6 +456,7 @@
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${r.name}</td>
+          <td>${r.earning}</td>
           <td>${(r.total * 100).toFixed(1)}%</td>
           <td>${(r.atmosValue * 100).toFixed(2)}¢</td>
           <td>${(r.statusValue * 100).toFixed(2)}¢</td>
