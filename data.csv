@@ -38,10 +38,10 @@ Costco Anywhere Visa,dining,0,0,0,0.03
 Costco Anywhere Visa,travel_general,0,0,0,0.03
 Costco Anywhere Visa,costco_general,0,0,0,0.02
 Costco Anywhere Visa,general,0,0,0,0.01
-Apple Card,apple_store,0,0,0,0.03
-Apple Card,car_rentals,0,0,0,0.03
-Apple Card,dining,0,0,0,0.03
-Apple Card,ev_charging,0,0,0,0.03
-Apple Card,gas,0,0,0,0.03
-Apple Card,travel_general,0,0,0,0.03
+Apple Card,apple,0,0,0,0.03
+Apple Card,ace_hardware,0,0,0,0.03
+Apple Card,walgreens,0,0,0,0.03
+Apple Card,uber,0,0,0,0.03
+Apple Card,nike,0,0,0,0.03
+Apple Card,apple_pay,0,0,0,0.02
 Apple Card,general,0,0,0,0.01

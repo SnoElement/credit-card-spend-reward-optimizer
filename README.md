@@ -31,9 +31,10 @@ These are used consistently across:
 
 Exact category keys currently used in the model:
 
+- ace_hardware
 - alaska_airlines
-- alaska_airlines
-- apple_store
+- apple
+- apple_pay
 - car_rentals
 - costco_general
 - dining
@@ -48,10 +49,13 @@ Exact category keys currently used in the model:
 - hawaiian_airlines
 - hilton_stays
 - internet_cable
+- nike
 - online_retail
 - general
 - streaming
 - transit
 - travel_general
+- uber
+- walgreens
 
 Note: the HTML dropdown exposes a core subset, while the Python optimizer still supports any category key above via the same model and fallback logic.

@@ -122,15 +122,15 @@ All rates below are copied from the model in `optimizer.py` and `optimizer.html`
 ### Apple Card
 
 - Cashback:
-	- `apple_store: 0.03`
-	- `car_rentals: 0.03`
-	- `dining: 0.03`
-	- `ev_charging: 0.03`
-	- `gas: 0.03`
-	- `travel_general: 0.03`
+	- `apple: 0.03`
+	- `ace_hardware: 0.03`
+	- `walgreens: 0.03`
+	- `uber: 0.03`
+	- `nike: 0.03`
+	- `apple_pay: 0.02`
 	- `general: 0.01`
 
-(Note: 3% at select merchants with Apple Pay; 2% with Apple Pay elsewhere; 1% with physical/virtual card. Model uses 1% general as conservative fallback.)
+(Note: 3% at specific merchants with Apple Pay; 2% with Apple Pay elsewhere; 1% with physical/virtual card)
 
 ## Notes on Category Coverage
 
