@@ -47,7 +47,7 @@ Exact category keys currently used in the model:
 - hilton_stays
 - internet_cable
 - online_retail
-- other
+- general
 - streaming
 - transit
 - travel_general

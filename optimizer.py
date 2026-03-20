@@ -13,15 +13,15 @@ class Card:
 def get_rate(mapping: Dict[str, float], category: str) -> float:
     if category in mapping:
         return mapping[category]
-    if "other" in mapping:
-        return mapping["other"]
+    if "general" in mapping:
+        return mapping["general"]
     return 0.0
 
 cards: List[Card] = [
     Card(
         name="Atmos Summit",
-        atmos_points={"alaska_airlines": 3, "hawaiian_airlines": 3, "dining": 3, "foreign": 3, "other": 1},
-        status_points={"other": 0.5},
+        atmos_points={"alaska_airlines": 3, "hawaiian_airlines": 3, "dining": 3, "foreign": 3, "general": 1},
+        status_points={"general": 0.5},
         hilton_points={},
         cashback={},
     ),
@@ -35,9 +35,9 @@ cards: List[Card] = [
             "transit": 2,
             "internet_cable": 2,
             "streaming": 2,
-            "other": 1,
+            "general": 1,
         },
-        status_points={"other": 0.3333333333},
+        status_points={"general": 0.3333333333},
         hilton_points={},
         cashback={},
     ),
@@ -49,9 +49,9 @@ cards: List[Card] = [
             "gas": 2,
             "dining": 2,
             "groceries": 2,
-            "other": 1,
+            "general": 1,
         },
-        status_points={"other": 0.3333333333},
+        status_points={"general": 0.3333333333},
         hilton_points={},
         cashback={},
     ),
@@ -64,7 +64,7 @@ cards: List[Card] = [
             "groceries": 0.03,
             "online_retail": 0.03,
             "gas": 0.03,
-            "other": 0.01,
+            "general": 0.01,
         },
     ),
     Card(
@@ -76,7 +76,7 @@ cards: List[Card] = [
             "flights": 7,
             "car_rentals": 7,
             "dining": 7,
-            "other": 3,
+            "general": 3,
         },
         cashback={},
     ),
@@ -91,7 +91,7 @@ cards: List[Card] = [
             "groceries": 0.02,
             "dining": 0.02,
             "disney_us": 0.02,
-            "other": 0.01,
+            "general": 0.01,
         },
     ),
     Card(

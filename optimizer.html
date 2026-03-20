@@ -287,7 +287,7 @@
             <option value="hilton_stays">Hilton stays</option>
             <option value="disney_streaming">Disney streaming</option>
             <option value="costco_general">Costco general</option>
-            <option value="other">Other</option>
+            <option value="general">General</option>
           </select>
         </label>
       </div>
@@ -342,8 +342,8 @@
     const cards = [
       {
         name: "Atmos Summit",
-        atmos: { alaska_airlines: 3, hawaiian_airlines: 3, dining: 3, foreign: 3, other: 1 },
-        status: { other: 0.5 },
+        atmos: { alaska_airlines: 3, hawaiian_airlines: 3, dining: 3, foreign: 3, general: 1 },
+        status: { general: 0.5 },
         hilton: {},
         cashback: {}
       },
@@ -357,9 +357,9 @@
           transit: 2,
           internet_cable: 2,
           streaming: 2,
-          other: 1
+          general: 1
         },
-        status: { other: 0.3333333333 },
+        status: { general: 0.3333333333 },
         hilton: {},
         cashback: {}
       },
@@ -371,7 +371,7 @@
           gas: 2,
           dining: 2,
           groceries: 2,
-          other: 1
+          general: 1
         },
         status: { other: 0.3333333333 },
         hilton: {},
@@ -386,7 +386,7 @@
           groceries: 0.03,
           online_retail: 0.03,
           gas: 0.03,
-          other: 0.01
+          general: 0.01,
         }
       },
       {
@@ -398,7 +398,7 @@
           flights: 7,
           car_rentals: 7,
           dining: 7,
-          other: 3
+          general: 3,
         },
         cashback: {}
       },
@@ -413,7 +413,7 @@
           groceries: 0.02,
           dining: 0.02,
           disney_us: 0.02,
-          other: 0.01
+          general: 0.01,
         }
       },
       {
@@ -434,7 +434,7 @@
 
     function getRate(map, category) {
       if (category in map) return map[category];
-      if ("other" in map) return map["other"];
+      if ("general" in map) return map["general"];
       return 0;
     }
 
