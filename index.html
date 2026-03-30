@@ -274,16 +274,7 @@
       <div class="input-group">
         <label>
           <span>Select Category</span>
-          <select id="category">
-            <option value="ace_hardware">Ace Hardware</option>
-            <option value="alaska_hawaiian_airlines">Alaska or Hawaiian Airlines</option>
-            <option value="hilton_stays">Hilton stays</option>
-            <option value="online_retail">Online retail</option>
-            <option value="travel_general">Travel (general)</option>
-            <option value="uber">Uber / Uber Eats</option>
-            <option value="nike">Nike</option>
-            <option value="walgreens">Walgreens</option>
-          </select>
+          <select id="category"></select>
         </label>
       </div>
     </div>
@@ -526,6 +517,30 @@
         tbody.appendChild(tr);
       }
     }
+
+    // Populate categories dynamically from card data
+    function populateCategories() {
+      const categories = new Set();
+      for (const card of cards) {
+        for (const category of Object.keys(card.atmos)) categories.add(category);
+        for (const category of Object.keys(card.status)) categories.add(category);
+        for (const category of Object.keys(card.hilton)) categories.add(category);
+        for (const category of Object.keys(card.cashback)) categories.add(category);
+      }
+      
+      const sortedCategories = Array.from(categories).sort();
+      const select = document.getElementById("category");
+      select.innerHTML = "";
+      
+      for (const category of sortedCategories) {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        select.appendChild(option);
+      }
+    }
+    
+    populateCategories();
 
     document.getElementById("category").addEventListener("change", runOptimizer);
     document.getElementById("atmos_value").addEventListener("change", runOptimizer);
